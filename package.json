@@ -1,0 +1,22 @@
+{
+  "name": "ronaldobotv2ts",
+  "version": "1.0.0",
+  "description": "ronaldo bot v2 agora em ts!",
+  "main": "./prod/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node -r dotenv/config ./prod/Bot.js"
+  },
+  "author": "madso",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^20.4.10",
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

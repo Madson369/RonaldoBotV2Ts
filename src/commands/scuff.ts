@@ -1,0 +1,33 @@
+import { ChatInputCommandInteraction } from "discord.js";
+
+import { SlashCommandBuilder } from "discord.js";
+
+import fs from "fs";
+import util from "util";
+
+const readFile = util.promisify(fs.readFile);
+
+module.exports = {
+  disabled: false,
+  data: new SlashCommandBuilder()
+    .setName("scuff")
+    .setDescription("info sobre a scuff!"),
+  async execute(interaction: ChatInputCommandInteraction) {
+    readFile("data.json", "utf8").then(async (res) => {
+      let json = JSON.parse(res);
+      let text = json.scuff;
+      if (!text) {
+        json.scuff = "";
+        text = "setaram esse texto ainda não usa o /edit";
+        fs.writeFile("data.json", JSON.stringify(json), (err) => {
+          if (err) throw err;
+          console.log("The file has been saved!");
+        });
+      }
+      await interaction.reply({
+        content: text,
+        ephemeral: false,
+      });
+    });
+  },
+};
