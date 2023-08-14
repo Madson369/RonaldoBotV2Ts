@@ -20,8 +20,8 @@ module.exports = {
       ?.toString()
       }`
 
-    const message = `<: fluffy: 914732955702800384 > <@${info.user.id
-      }> <: fluffy: 914732955702800384 > muito boas - vindas ao server, lembre - se de checkar as ${canalRegra} e escolher seus ${canalCargo}
+    const message = `<:fluffy:914732955702800384> <@${info.user.id
+      }> <:fluffy:914732955702800384> muito boas - vindas ao server, lembre - se de checkar as ${canalRegra} e escolher seus ${canalCargo}
 `;
 
     if (!info.guild) return
