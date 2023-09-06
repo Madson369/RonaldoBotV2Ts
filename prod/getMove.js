@@ -41,6 +41,7 @@ function getMove(personagem, ataque) {
             "Testament",
             "Bedman",
             "Asuka_R",
+            "Johnny"
         ];
         let Name = arr.find((nome) => {
             return nome

@@ -50,6 +50,7 @@ async function getMove(personagem: string, ataque: string) {
     "Testament",
     "Bedman",
     "Asuka_R",
+    "Johnny"
   ];
 
   let Name = arr.find((nome) => {
