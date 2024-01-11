@@ -27,7 +27,7 @@ module.exports = {
       return message.channel.send(`${user}, ta dando react em bot pq parça.`);
     }
     // const { starboardChannel } = reaction.client.settings.get(message.guild.id);
-    const starChannel = message?.guild?.channels.cache.get("1083854425296207872") as TextChannel;
+    const starChannel = message?.guild?.channels.cache.get("1083854425296207872") as TextChannel ?? message?.guild?.channels.cache.get("1195053450501820426") as TextChannel;
 
     if (!starChannel) return message.channel.send(`achei o canal n.`);
 

@@ -17,6 +17,7 @@ const node_fs_1 = __importDefault(require("node:fs"));
 const node_path_1 = __importDefault(require("node:path"));
 const discord_js_1 = require("discord.js");
 const token = process.env.KEY;
+console.log('token: ', token);
 const client = new discord_js_1.Client({
     intents: [
         discord_js_1.GatewayIntentBits.Guilds,

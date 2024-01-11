@@ -14,7 +14,7 @@ module.exports = {
     name: discord_js_1.Events.MessageReactionAdd,
     once: false,
     execute(reaction, user) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r;
         return __awaiter(this, void 0, void 0, function* () {
             const message = reaction.message;
             const channelId = reaction.message.channelId;
@@ -35,7 +35,7 @@ module.exports = {
                 return message.channel.send(`${user}, ta dando react em bot pq parça.`);
             }
             // const { starboardChannel } = reaction.client.settings.get(message.guild.id);
-            const starChannel = (_f = message === null || message === void 0 ? void 0 : message.guild) === null || _f === void 0 ? void 0 : _f.channels.cache.get("1083854425296207872");
+            const starChannel = (_g = (_f = message === null || message === void 0 ? void 0 : message.guild) === null || _f === void 0 ? void 0 : _f.channels.cache.get("1083854425296207872")) !== null && _g !== void 0 ? _g : (_h = message === null || message === void 0 ? void 0 : message.guild) === null || _h === void 0 ? void 0 : _h.channels.cache.get("1195053450501820426");
             if (!starChannel)
                 return message.channel.send(`achei o canal n.`);
             //----------------------------------
@@ -48,7 +48,7 @@ module.exports = {
             // Now we setup an if statement for if the message is found within the starboard.
             if (stars) {
                 // Regex to check how many stars the embed has.
-                const star = (_k = /^\💀\s([0-9]{1,3})\s\|\s([0-9]{17,20})/.exec((_j = (_h = (_g = stars === null || stars === void 0 ? void 0 : stars.embeds[0]) === null || _g === void 0 ? void 0 : _g.footer) === null || _h === void 0 ? void 0 : _h.text) !== null && _j !== void 0 ? _j : '')) !== null && _k !== void 0 ? _k : '';
+                const star = (_m = /^\💀\s([0-9]{1,3})\s\|\s([0-9]{17,20})/.exec((_l = (_k = (_j = stars === null || stars === void 0 ? void 0 : stars.embeds[0]) === null || _j === void 0 ? void 0 : _j.footer) === null || _k === void 0 ? void 0 : _k.text) !== null && _l !== void 0 ? _l : '')) !== null && _m !== void 0 ? _m : '';
                 const foundStar = stars.embeds[0];
                 let image = "";
                 const attachments = [...message.attachments];
@@ -59,7 +59,7 @@ module.exports = {
                     color: foundStar.color,
                     description: foundStar.description,
                     image: {
-                        url: (_m = (_l = foundStar === null || foundStar === void 0 ? void 0 : foundStar.image) === null || _l === void 0 ? void 0 : _l.url) !== null && _m !== void 0 ? _m : "",
+                        url: (_p = (_o = foundStar === null || foundStar === void 0 ? void 0 : foundStar.image) === null || _o === void 0 ? void 0 : _o.url) !== null && _p !== void 0 ? _p : "",
                     },
                     author: foundStar.author,
                     footer: { text: `💀 ${parseInt(star[1]) + 1} | ${message.id}` },
@@ -92,8 +92,8 @@ module.exports = {
                         url: image !== null && image !== void 0 ? image : "",
                     },
                     author: {
-                        name: (_o = message === null || message === void 0 ? void 0 : message.author) === null || _o === void 0 ? void 0 : _o.username,
-                        iconURL: (_p = message === null || message === void 0 ? void 0 : message.author) === null || _p === void 0 ? void 0 : _p.avatarURL(),
+                        name: (_q = message === null || message === void 0 ? void 0 : message.author) === null || _q === void 0 ? void 0 : _q.username,
+                        iconURL: (_r = message === null || message === void 0 ? void 0 : message.author) === null || _r === void 0 ? void 0 : _r.avatarURL(),
                     },
                     footer: { text: `💀 5 | ${message.id}` },
                     fields: [
