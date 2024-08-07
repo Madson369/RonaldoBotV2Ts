@@ -50,7 +50,8 @@ async function getMove(personagem: string, ataque: string) {
     "Testament",
     "Bedman",
     "Asuka_R",
-    "Johnny"
+    "Johnny",
+    "Slayer"
   ];
 
   let Name = arr.find((nome) => {
@@ -120,6 +121,8 @@ async function getMove(personagem: string, ataque: string) {
       data.push(rowData);
     });
 
+
+
     if (type === "normal") {
       const moveArray: IMove[] = data.map((move, index) => {
         return {
@@ -174,7 +177,7 @@ async function getMove(personagem: string, ataque: string) {
 
 
   const getImage = async (url: string) => {
-    console.log('url: ', url);
+
     if (!url) return ''
     const response = await axios.get(`https://dustloop.com/${url}`);
     const $ = cheerio.load(response.data);
@@ -192,12 +195,15 @@ async function getMove(personagem: string, ataque: string) {
       `https://dustloop.com/wiki/index.php?title=GGST/${Name}/Frame_Data`
     );
 
-    let normals = handleData(response.data, "#section-collapsible-3", "normal");
-    let specials = handleData(response.data, "#section-collapsible-4");
-    let overdrives = handleData(response.data, "#section-collapsible-5");
+    let normals = handleData(response.data, "#citizen-section-3", "normal");
+
+
+    let specials = handleData(response.data, "#citizen-section-4");
+    let overdrives = handleData(response.data, "#citizen-section-5");
     moves = [...normals, ...specials, ...overdrives];
 
     //Filters the move list by lowercase search of ataque variable (Twice?)
+
 
 
 
@@ -215,7 +221,6 @@ async function getMove(personagem: string, ataque: string) {
 
     const teste = await Promise.all(
       moveArray.map(async (move) => {
-        console.log('move: ', move);
         let image = await getImage(move.url);
         return { ...move, url: image };
       })
